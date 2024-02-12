@@ -23,7 +23,7 @@ class ContactsPage extends StatelessWidget {
         const SizedBox(
           width: 16,
         ),
-        const Text("Christian"),
+        const Text("Christian\n0123456789"),
       ],
     );
   }
