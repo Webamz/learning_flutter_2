@@ -30,6 +30,7 @@ class _MainPageState extends State<MainPage> {
       ),
       appBar: AppBar(
         backgroundColor: Colors.amber,
+        centerTitle: true,
         title: const Text("My Application"),
       ),
       body: pages[currentIndex],
@@ -39,9 +40,9 @@ class _MainPageState extends State<MainPage> {
           BottomNavigationBarItem(
               icon: Icon(Icons.contact_phone), label: "Contacts"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.calculate), label: "Calculator")
-          // BottomNavigationBarItem(
-          //     icon: Icon(Icons.calculate), label: "Profile"),
+              icon: Icon(Icons.calculate), label: "Calculator"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.calculate), label: "Profile"),
         ],
         currentIndex: currentIndex,
         onTap: (index) {
@@ -49,7 +50,9 @@ class _MainPageState extends State<MainPage> {
             currentIndex = index;
           });
         },
+        type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.amber,
+        fixedColor: Colors.blueAccent,
       ),
     );
   }
