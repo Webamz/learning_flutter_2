@@ -6,6 +6,9 @@ class ContactsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Center(child: Text("Contacts Page")),
+      ),
       body: ListView(
         children: thecontacts(),
       ),

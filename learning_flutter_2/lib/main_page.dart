@@ -3,6 +3,7 @@ import 'package:learning_flutter_2/calculator_screen.dart';
 import 'package:learning_flutter_2/contacts_page.dart';
 import 'package:learning_flutter_2/drawer_header.dart';
 import 'package:learning_flutter_2/home_page.dart';
+import 'package:learning_flutter_2/profile_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -13,7 +14,6 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int currentIndex = 0;
-  var currentPage = DrawerSections.home;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +39,9 @@ class _MainPageState extends State<MainPage> {
           BottomNavigationBarItem(
               icon: Icon(Icons.contact_phone), label: "Contacts"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.calculate), label: "Calculator"),
+              icon: Icon(Icons.calculate), label: "Calculator")
+          // BottomNavigationBarItem(
+          //     icon: Icon(Icons.calculate), label: "Profile"),
         ],
         currentIndex: currentIndex,
         onTap: (index) {
@@ -56,22 +58,20 @@ class _MainPageState extends State<MainPage> {
     const HomePage(),
     const ContactsPage(),
     const CalculatorScreen(),
+    const ProfilePage(),
   ];
 
   Widget drawerList() {
     return Column(
       children: [
-        menuItem(0, "Home", Icons.home,
-            currentPage == DrawerSections.home ? true : false),
-        menuItem(1, "Contacts", Icons.contacts,
-            currentPage == DrawerSections.contacts ? true : false),
-        menuItem(2, "Calculator", Icons.calculate,
-            currentPage == DrawerSections.calculator ? true : false)
+        menuItem(0, "Home", Icons.home),
+        menuItem(1, "Contacts", Icons.contacts),
+        menuItem(3, "Profile", Icons.calculate)
       ],
     );
   }
 
-  Widget menuItem(int id, String title, IconData icon, bool selected) {
+  Widget menuItem(int id, String title, IconData icon) {
     return Material(
       child: InkWell(
         onTap: () {
@@ -108,5 +108,3 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
-
-enum DrawerSections { home, contacts, calculator }
